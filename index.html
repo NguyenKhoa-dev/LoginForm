@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"  href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+    <title>Login</title>
+</head>
+<body>
+    <div class="login">
+        <div class="face sign-in">
+            <h2>Sign In</h2>
+            <div class="box">
+                <input type="text" placeholder="Username" name="user_signin">
+            </div>
+            <div class="box">
+                <input type="password" class="password" placeholder="Password" name="pwd_signin">
+                <div class="toggle" onclick="showPassword(0)"></div>
+            </div>
+            <a href="#" class="btnLogin">Login</a>
+            <div class="query">
+                <p>Forgot <a href="#">Password</a>?</p>
+                <p>Create an <span id="sign-up">Account</span>?</p>
+            </div>
+        </div>
+        <div class="face sign-up">
+            <h2>Sign UP</h2>
+            <div class="box">
+                <input type="text" placeholder="Username" name="user_signup">
+            </div>
+            <div class="box">
+                <input type="password" class="password" placeholder="Password" name="pwd_signup">
+                <div class="toggle" onclick="showPassword(1)"></div>
+            </div>
+            <div class="box">
+                <input type="password" class="password" placeholder="Confirm Password" name="pwd_signup">
+                <div class="toggle" onclick="showPassword(2)"></div>
+            </div>
+            <a href="#" class="btnLogin">Sign up</a>
+            <div class="query">
+                <p>Have an account, <span id="sign-in">Sign In</span>?</p>
+            </div>
+        </div>
+    </div>    
+</body>
+<script>
+    let password = document.getElementsByClassName('password');
+    let toggle = document.getElementsByClassName('toggle');
+    let btnSignIn = document.getElementById('sign-in');
+    let btnSignUp = document.getElementById('sign-up');
+
+    const login = document.querySelector('.login');
+    
+    function showPassword(i) {
+        if (password[i].type === 'password') {
+            password[i].setAttribute('type', 'text');
+            toggle[i].classList.add('hide');
+        }
+        else {
+            password[i].setAttribute('type', 'password');
+            toggle[i].classList.remove('hide');
+        }
+    }
+
+    btnSignUp.onclick = function() {
+        login.classList.add('sign-up');
+    }
+
+    btnSignIn.onclick = function() {
+        login.classList.remove('sign-up');
+    }
+</script>
+</html>
